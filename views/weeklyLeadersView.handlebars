@@ -1,0 +1,21 @@
+<h3>{{title}}</h3>
+<table class="table table-striped table-leaders table-hover table-condensed table-responsive">
+  <tr>
+    <th width="40%">Season</th>
+    <th width="40%">Week</th>
+    <th width="20%">Stats</th>
+  </tr>
+</table>
+ 
+<script>
+ $(function() {
+ /* Initial jQuery AJAX call on page load */
+ dataRequestLeaders('/fantasy/leaders');
+
+ /* Refresh data every 15 seconds */
+ setInterval(function() {
+  //$('.table-leaders tr:gt(1)').remove();
+  dataRequestLeaders('/fantasy/leaders');
+ }, 15000);
+ });
+</script>

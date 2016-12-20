@@ -1,0 +1,91 @@
+<h3>{{title}}: <span id="positionSpan"></span></h3>
+<ul class="list-inline">
+    <li><a href="/leaders" class="btn btn-info btn-sm">Back</a></li>
+    <li id="qbItem"><div id="qbBtn" class="btn btn-default btn-sm .btn.active">QB</div></li>
+    <li id="rbItem"><div id="rbBtn" class="btn btn-default btn-sm">RB</div></li>
+    <li id="wrItem"><div id="wrBtn" class="btn btn-default btn-sm">WR</div></li>
+    <li id="teItem"><div id="teBtn" class="btn btn-default btn-sm">TE</div></li>
+</ul>
+<table class="table table-striped table-leaders">
+  <tr>
+    <th>Name</th>
+    <th>Points</th>
+    <th>Projected Points</th>
+    <th>Team</th>
+    <th>Opponent</th>
+    <th>Status</th>
+    <th>Details</th>
+  </tr>
+</table>
+<ul class="list-inline">
+    <li><a href="/leaders" class="btn btn-info btn-sm">Back</a></li>
+</ul>
+
+<script>
+ $(function() {
+  let week = {{week}};
+  $("#qbItem").hide();
+  
+  var position = $('#qbBtn').text();
+  $("#positionSpan").text(position);
+  
+ /* Initial jQuery AJAX call on page load */
+ dataRequestLeadersByWeek('/fantasy/leaders', position, week);
+
+ /* Refresh data every 15 seconds */
+ setInterval(function() {
+  //$('.table-leaders tr:gt(1)').remove();
+  dataRequestLeadersByWeek('/fantasy/leaders', position, week);
+ }, 15000);
+  
+ $('#qbBtn').click(function() {
+  position = $('#qbBtn').text();
+  
+  $("#positionSpan").text(position);
+  $("#qbItem").hide();
+  $("#rbItem").show();
+  $("#wrItem").show();
+  $("#teItem").show();
+  
+  dataRequestLeadersByWeek('/fantasy/leaders', position, week);
+ });
+ 
+  $('#rbBtn').click(function() {
+  position = $('#rbBtn').text();
+   
+  $("#positionSpan").text(position);
+  $("#qbItem").show();
+  $("#rbItem").hide();
+  $("#wrItem").show();
+  $("#teItem").show();
+   
+  dataRequestLeadersByWeek('/fantasy/leaders', position, week);
+ });
+  
+ $('#wrBtn').click(function() {
+  position = $('#wrBtn').text();
+  
+  $("#positionSpan").text(position);
+  $("#qbItem").show();
+  $("#rbItem").show();
+  $("#wrItem").hide();
+  $("#teItem").show();
+  
+  dataRequestLeadersByWeek('/fantasy/leaders', position, week);
+ });
+  
+ $('#teBtn').click(function() {
+  position = $('#teBtn').text();
+  
+  $("#positionSpan").text(position);
+  $("#qbItem").show();
+  $("#rbItem").show();
+  $("#wrItem").show();
+  $("#teItem").hide();
+  
+  dataRequestLeadersByWeek('/fantasy/leaders', position, {{week}});
+ });
+  
+ 
+ });
+</script>

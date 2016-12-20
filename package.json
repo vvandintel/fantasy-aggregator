@@ -1,0 +1,39 @@
+{
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cfenv": "^1.0.3",
+    "cookie-parser": "^1.4.3",
+    "cron": "^1.1.1",
+    "csurf": "^1.9.0",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "express-rate-limit": "^2.5.0",
+    "helmet": "^2.3.0",
+    "moment": "^2.15.1",
+    "mongo": "^0.1.0",
+    "mongoose": "^4.6.1",
+    "morgan": "^1.7.0",
+    "request": "^2.75.0",
+    "winston": "^2.2.0"
+  },
+  "name": "fantasy-aggregator",
+  "description": "Fantasy football site that displays live NFL news and stats",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "6.7.0"
+  },
+  "keywords": [
+    "Node",
+    "REST",
+    "API",
+    "Fantasy",
+    "Football"
+  ],
+  "author": "Vincent P. Van Dintel",
+  "license": "MIT"
+}
